@@ -30,8 +30,6 @@ such as like         % phrase pick one
 =======              % syntax CVS conflict!
 >>>>>>> [0-9]        % syntax CVS conflict!
 [;:]''               % syntax close quotes before (semi-)colons, but after commas and periods
-e\.g\.[\n ]          % syntax should be followed with a comma, as e.g. can be read as "for example" (thanks JZ!)
-i\.e\.[\n ]          % syntax should be followed with a comma, as i.e. can be read as "that is" (thanks JZ!)
 [ ]\.[\n ]           % syntax stray period?
 further more         % phrase one word: furthermore
 safe guard           % phrase one word: safeguard

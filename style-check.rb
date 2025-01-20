@@ -250,8 +250,10 @@ emit_html_file_header
 Input_files.each { |f|
   emit_html_file_heading(f)
   in_multiline_comment = 0
+  in_tikzpicture = false
   in_multiline_verbatim = false
   in_multiline_equation = false
+  in_equation = false
   # load the file, contents, but drop comments and other
   # hidden tex command pieces
   lines = File.open(f).readlines
@@ -265,17 +267,29 @@ Input_files.each { |f|
     elsif( ln =~ /\\end\{comment\}/ ) then
       in_multiline_comment-=1
     end
+    if( ln =~ /\\\[/ ) then
+      in_equation=true
+    elsif( ln =~ /\\\]/) then
+      in_equation=false
+    end
+    if( ln =~ /\\begin\{tikzpicture\}/ ) then
+      in_tikzpicture=true
+    elsif( ln =~ /\\end\{tikzpicture\}/ ) then
+      in_tikzpicture=false
+    end
     if( ln =~ /\\begin\{verbatim\}/ ) then
       in_multiline_verbatim=true
     elsif( ln =~ /\\end\{verbatim\}/ ) then
       in_multiline_verbatim=false
     end
-    if( ln =~ /\\begin\{(equation|math|eqnarray)\*?\}/ ) then
+    if( ln =~ /\\begin\{(equation|math|eqnarray|align\*)\*?\}/ ) then
       in_multiline_equation=true
-    elsif( ln =~ /\\end\{(equation|math|eqnarray)\*?\}/ ) then
+    elsif( ln =~ /\\end\{(equation|math|eqnarray|align\*)\*?\}/ ) then
       in_multiline_equation=false
     end
-    if(in_multiline_comment == 0 && ! in_multiline_verbatim && ! in_multiline_equation)  then
+    if(in_multiline_comment == 0 && ! in_tikzpicture && 
+       ! in_multiline_verbatim && ! in_multiline_equation && ! in_equation)  
+    then
       do_cns( ln, f, i+1, PreCensored_phrases )
       ln.gsub!(De_command, '~')
       ln.gsub!(De_verb, '~')
@@ -293,14 +307,6 @@ Input_files.each { |f|
         #if(checkstring =~ /SIGCOMM/) then
           #puts "%s:%d: argh: %s" % [ f, i, checkstring.gsub(/\n/, '\n') ];
         #end
-        if(checkstring =~ /[a-z0-9][^\.\:\!\?\n}]\n\n/) then
-          if($options[:web_output]) then
-            emit_html_warning(f, j, nil, "apparent bad paragraph break", checkstring.gsub(/\n/, '\n'), phra_hash, nil)
-      	  else
-            puts "\n################################################################################\n%s:l%d: apparent bad paragraph break: %s" % [ 
-                   f, i+1, checkstring.gsub(/\n/, '\n') ];
-          end
-        end
       end
     end
   }
