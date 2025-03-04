@@ -30,7 +30,6 @@ More importantly,     % phrase probably means the order is wrong: put important 
 todo                  % ignoredcommand
 texttt                  % ignoredcommand
 due to space constraints % phrase don't whine.
-this paper % phrase can be ambiguous if talking about someone else's paper whether you mean the one youre writing or the one you're talking about..
 the above             % phrase horrible phrase that must be expunged.  you might use "these" instead, but best to make the sentence stand alone.
 referred to above     % phrase "these".
 (all|the|of) [0-9][ ] %  phrase use words for numbers in phrases.
