@@ -3,7 +3,6 @@ a the                % phrase double article
 [ ],                 % syntax whitespace before comma seems wrong.
 ''[\.,]              % syntax end quotes go outside punctuation like . and ,
 Figure Figure        % phrase pizza pizza.
-[ ]-[ ]              % syntax a hyphen surrounded by space should probably be an emdash '---'
 [0-9]-[0-9]          % syntax use an endash '--' for ranges
 [0-9]ms              % syntax put a space between the number and the unit.
 [^egs]\. [a-z]       % syntax a period usually ends a sentence, and sentences should start with a capital; doesn't apply for i.e., 
@@ -21,14 +20,10 @@ was not was          % phrase pretty much a joke if this gets matched.
 we we                % phrase it would be oi oi in french, I guess.
 with on              % phrase probably wrong.
 with with            % phrase apparent double word.
-[\n ]--[\n ]         % syntax that's an en-dash, you want an em-dash: "---"
 my my                % phrase unlikely that's what you want, at least without a comma. (doesn't work across newlines)
 >From                % syntax be careful when you email .tex files.  I've seen this slip through into submissions.
 e\.t\.c\.            % syntax it's et cetera; use etc.
 such as like         % phrase pick one
-<<<<<<< .            % syntax CVS conflict!
-=======              % syntax CVS conflict!
->>>>>>> [0-9]        % syntax CVS conflict!
 [;:]''               % syntax close quotes before (semi-)colons, but after commas and periods
 [ ]\.[\n ]           % syntax stray period?
 further more         % phrase one word: furthermore
