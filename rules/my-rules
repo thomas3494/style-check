@@ -57,3 +57,4 @@ I\.e\. % syntax starting a sentence with i.e. is just ugly.
 E\.g\. % syntax starting a sentence with e.g. is just ugly.
 in the large % phrase if large is a noun, bad.  if it's an adjective, fine.
 encapsulates with % phrase seen it, don't know what it means.
+,\ that % grammer that is only used for defining relative clauses and these do not use commas
