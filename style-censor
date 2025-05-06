@@ -23,7 +23,6 @@ UUNET                % capitalize UUnet
 [a-z]\.\.            % syntax double period is rarely right, use \ldots for ellipsis
 \"                   % syntax use fancy quotes
 \.  [a-z]            % syntax a period usually ends a sentence, and sentences should start with a captial; doesn't apply when an acronym.
-\\etal[^{]           % syntax it's good practice to use \etal{} to avoid bad spacing
 \beg\.               % syntax should be e.g. as in "examples given"
 ``no-valley''        % spelling should not be quoted, it's distracting
 a large number of    % phrase you mean "many"
@@ -46,7 +45,6 @@ do this              % phrase probably verbose if you use a pronoun for what you
 don't                % spelling do not
 elimintate           % spelling
 enginner             % spelling
-et al.[^}]           % syntax use the \etal{} command instead.
 exists               % spelling -- probably no better than "is"
 experiements         % spelling
 fashion              % spelling hrm

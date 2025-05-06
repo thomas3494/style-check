@@ -2,8 +2,6 @@
 # capitalize is case sensitive, and also bracketed by non-word.
 # phrase and spelling are case insensitive, but bracketed by non-word characters.
 # syntax is case sensitive but not bracketed by non-word; probably best if used with regexes.
-\bet al\.[^}]        % syntax use the \etal{} command instead. (or write one to italicize)
-\bet\. al\.          % syntax use the \etal{} command, "et" needs no dot (et alii). (or write one to italicize)
 \bc\.f\.\b             % syntax should be cf. for "confer" (latin for compare)
 \b$i\)[^$]              % syntax leave the paren in math mode -- should be $i)$
 \b$ii\)[^$]             % syntax leave the paren in math mode -- should be $ii)$
@@ -57,4 +55,4 @@ I\.e\. % syntax starting a sentence with i.e. is just ugly.
 E\.g\. % syntax starting a sentence with e.g. is just ugly.
 in the large % phrase if large is a noun, bad.  if it's an adjective, fine.
 encapsulates with % phrase seen it, don't know what it means.
-,\ that % grammer that is only used for defining relative clauses and these do not use commas
+, that % phrase that is only used for defining relative clauses and these do not use commas
